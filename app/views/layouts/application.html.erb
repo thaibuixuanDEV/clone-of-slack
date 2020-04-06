@@ -11,11 +11,18 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <%= render 'layouts/header' %>
       </div>
-      <%= yield %>
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <%= render 'layouts/leftbar' %>
+        <div class="col-sm-10">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

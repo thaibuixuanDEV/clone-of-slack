@@ -1,4 +1,5 @@
 class ChatroomsController < ApplicationController
+  before_action :require_logged_in
   before_action :set_chatroom, only: [:show, :edit, :update, :destroy]
 
   # GET /chatrooms
@@ -24,10 +25,9 @@ class ChatroomsController < ApplicationController
   # POST /chatrooms
   # POST /chatrooms.json
   def create
-    @chatroom = Chatroom.new(chatroom_params)
-
+    @chatroom = current_user.chatrooms.new(chatroom_params)
     respond_to do |format|
-      if @chatroom.save
+      if current_user.save
         format.html { redirect_to @chatroom, notice: 'Chatroom was successfully created.' }
         format.json { render :show, status: :created, location: @chatroom }
       else
@@ -70,5 +70,9 @@ class ChatroomsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def chatroom_params
       params.require(:chatroom).permit(:name)
+    end
+
+    def require_logged_in
+      redirect_to new_user_session_path if current_user.nil?
     end
 end
