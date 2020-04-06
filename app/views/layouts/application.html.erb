@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
   </head>
 
   <body>
@@ -16,12 +17,10 @@
         <%= render 'layouts/header' %>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid main-container">
       <div class="row">
         <%= render 'layouts/leftbar' %>
-        <div class="col-sm-10">
-          <%= yield %>
-        </div>
+        <%= render 'layouts/conversation' %>
       </div>
     </div>
   </body>

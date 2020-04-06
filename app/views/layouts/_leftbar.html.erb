@@ -1,6 +1,6 @@
 <div class="col-sm-2">
   <% if user_signed_in? %>
-    <h5>Chatrooms</h5>
+    <h5><strong>Chatrooms</strong></h5>
     <ul>
       <% current_user.chatrooms.each do |chatroom| %>
         <li><%= link_to chatroom.name, chatroom %></li>

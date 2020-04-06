@@ -20,3 +20,20 @@ document.addEventListener("turbolinks:load", () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+//
+
+$(document).on('turbolinks:load',function(){
+
+  var newMessage = $("#new_message");
+
+  newMessage.keypress( function(e) {
+    if (e.keyCode == 13){
+      $.ajax({
+        type: "post",
+        url: newMessage.attr("action"),
+        data: newMessage.serialize(),
+        dataType: "script"
+      });
+    }
+  });
+})

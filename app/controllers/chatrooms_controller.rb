@@ -11,6 +11,7 @@ class ChatroomsController < ApplicationController
   # GET /chatrooms/1
   # GET /chatrooms/1.json
   def show
+    @messages = @chatroom.messages.order(created_at: :desc).limit(10).reverse
   end
 
   # GET /chatrooms/new
