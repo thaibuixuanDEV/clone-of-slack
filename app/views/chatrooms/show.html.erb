@@ -1,5 +1,5 @@
 <h5><strong>Name: </strong><%= @chatroom.name %></h5>
-<div data-behavior="messages" class="messages">
+<div data-behavior="messages" data-chatroom_id="<%= @chatroom.id %>" class="messages">
   <% @messages.each do |message| %>
     <%= render message %>
   <% end %>
