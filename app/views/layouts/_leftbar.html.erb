@@ -1,7 +1,7 @@
-<div class="col-sm-2">
+<div class="col-sm-2 leftbar">
   <% if user_signed_in? %>
-    <h5><strong>Chatrooms</strong></h5>
-    <ul>
+    <h5 class="title-leftbar"><strong>Chatrooms</strong></h5>
+    <ul class="list-room">
       <% current_user.chatrooms.each do |chatroom| %>
         <li><%= link_to chatroom.name, chatroom, data: { behavior: "chatroom-link", chatroom_id: chatroom.id } %></li>
       <% end %>

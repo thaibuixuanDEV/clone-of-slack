@@ -1,5 +1,7 @@
 <% printed_unread_line = false %>
-<h5><strong>Name: </strong><%= @chatroom.name %></h5>
+<%#<marquee behavior="scroll" direction="right">%>
+<h5 class="title-conversation"><strong><%= @chatroom.name %></strong></h5>
+<%#</marquee>%>
 <div data-behavior="messages" data-chatroom_id="<%= @chatroom.id %>" class="messages">
   <% @messages.each do |message| %>
     <% if !printed_unread_line && (message.created_at > @chatroom_user.last_read_at) %>
@@ -14,5 +16,5 @@
 
 
 <%= form_with model: [@chatroom, Message.new], id: "new_message", remote: true, format: :js do |f| %>
-  <%= f.text_area :body, rows: 2, class: "form-control", autofocus: true %>
+  <%= f.text_area :body, rows: 2, class: "form-control", autofocus: true, placeholder: "Enter for send message" %>
 <% end %>
