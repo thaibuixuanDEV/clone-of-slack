@@ -22,18 +22,26 @@ document.addEventListener("turbolinks:load", () => {
 // const imagePath = (name) => images(name, true)
 //
 
-$(document).on('turbolinks:load',function(){
+//$(document).on('turbolinks:load',function(){
 
-  var newMessage = $("#new_message");
+  //var newMessage = $("#new_message");
 
-  newMessage.keypress( function(e) {
-    if (e.keyCode == 13){
-      $.ajax({
-        type: "post",
-        url: newMessage.attr("action"),
-        data: newMessage.serialize(),
-        dataType: "script"
-      });
-    }
-  });
-})
+  //newMessage.keypress( function(e) {
+    //if (e.keyCode == 13){
+      //console.log(`message: ${newMessage.serialize()}`)
+      //$.ajax({
+        //type: "post",
+        //url: newMessage.attr("action"),
+        //data: newMessage.serialize(),
+        //dataType: "script"
+      //});
+    //}
+  //});
+//})
+
+
+//$(document).on('turbolinks:load', function(){
+//})
+
+
+
