@@ -13,7 +13,7 @@ const chatroomChannel = consumer.subscriptions.create("ChatroomsChannel", {
   received(data) {
     var dataBehavior = $(`[data-behavior='messages'][data-chatroom_id='${data.chatroom_id}']`);
     if(dataBehavior.length != 0){
-      var newMessageComponent = $(`<div><strong>${data.message.username}</strong>: ${data.message.body}</div>`);
+      var newMessageComponent = $(`<div class="unread-message"><strong>${data.message.username}</strong>: ${data.message.body}</div>`);
       if(document.hidden){
         if($('.strike').length == 0){
           dataBehavior.append('<div class="strike"><span>Unread Messages</span></div>')
@@ -49,6 +49,7 @@ $(document).on('turbolinks:load', function(){
       textArea.val('');
       if($('.strike').length != 0){
         $('.strike').remove();
+        $('.unread-message').css({'background': 'none', 'opacity': '1'});
       }
     }
   })
