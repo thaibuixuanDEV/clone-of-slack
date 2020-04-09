@@ -1,0 +1,14 @@
+.strike {
+   width: 100%;
+   text-align: center;
+   border-bottom: 1px solid blue;
+   line-height: 0.1em;
+   margin: 10px 0 20px;
+}
+
+.strike span {
+    font-weight: bold;
+    font-size: small;
+    background:#fff;
+    padding:0 5px;
+}

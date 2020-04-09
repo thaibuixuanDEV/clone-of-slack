@@ -1,6 +1,13 @@
+<% printed_unread_line = false %>
 <h5><strong>Name: </strong><%= @chatroom.name %></h5>
 <div data-behavior="messages" data-chatroom_id="<%= @chatroom.id %>" class="messages">
   <% @messages.each do |message| %>
+    <% if !printed_unread_line && (message.created_at > @chatroom_user.last_read_at) %>
+      <% printed_unread_line = true %>
+      <div class="strike">
+        <span>Unread messages</span>
+      </div>
+    <% end %>
     <%= render message %>
   <% end %>
 </div>

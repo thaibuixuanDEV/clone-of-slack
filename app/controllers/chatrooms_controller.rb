@@ -12,6 +12,7 @@ class ChatroomsController < ApplicationController
   # GET /chatrooms/1.json
   def show
     @messages = @chatroom.messages.order(created_at: :desc).limit(10).reverse
+    @chatroom_user = ChatroomUser.where(user_id: current_user.id, chatroom: @chatroom).first
   end
 
   # GET /chatrooms/new
